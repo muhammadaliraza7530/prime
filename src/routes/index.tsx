@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Home,
   Landmark,
@@ -72,17 +72,6 @@ const stats = [
   { value: "A+", label: "Grade Material", icon: Award },
 ] as const;
 
-const marqueeWords = [
-  "Grey Structure",
-  "Turnkey Homes",
-  "Interior Design",
-  "Commercial Plazas",
-  "Renovations",
-  "Real Estate",
-  "Architecture",
-  "Finishing",
-];
-
 const showcaseSlides = [
   { img: showcaseSpanish, title: "1 Kanal Spanish Villa", tag: "Turnkey Home" },
   { img: showcaseModernVilla, title: "Contemporary Family Villa", tag: "Modern Design" },
@@ -102,6 +91,8 @@ function Index() {
   const bars = useInView<HTMLDivElement>({ threshold: 0.3 });
   const heroSlides = [heroImg, heroSlide2, heroSlide3];
   const [heroIdx, setHeroIdx] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   useEffect(() => {
     const id = window.setInterval(
       () => setHeroIdx((i) => (i + 1) % heroSlides.length),
@@ -109,6 +100,38 @@ function Index() {
     );
     return () => window.clearInterval(id);
   }, [heroSlides.length]);
+
+  useEffect(() => {
+    const videoEl = videoRef.current;
+    if (!videoEl) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (!entry) return;
+
+        if (entry.isIntersecting) {
+          videoEl.muted = false;
+          void videoEl.play().catch(() => {
+            // Browsers may block unmuted autoplay without prior click interaction
+            videoEl.muted = true;
+            void videoEl.play();
+          });
+        } else {
+          videoEl.muted = true;
+          videoEl.pause();
+        }
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(videoEl);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <main>
       {/* Hero */}
@@ -185,6 +208,32 @@ function Index() {
         </div>
       </section>
 
+      {/* Design Showcase Video */}
+      <section className="bg-background py-16 flex justify-center items-center">
+        <div className="px-4 flex justify-center w-full">
+          <div className="relative group max-w-[380px] w-full">
+            {/* Ambient Backlight Glow */}
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-primary/50 to-primary/20 blur-xl opacity-70 group-hover:opacity-100 transition duration-500" />
+            
+            {/* Main Video Frame */}
+            <div className="relative aspect-[9/16] w-full overflow-hidden rounded-2xl border border-primary/40 shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
+              <video
+                ref={videoRef}
+                src="/video/mainSection.mp4"
+                playsInline
+                autoPlay
+                loop
+                muted
+                controls={false}
+                preload="auto"
+                aria-hidden
+                className="h-full w-full rounded-2xl object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Design Showcase Carousel */}
       <section className="bg-background py-20">
         <div className="mx-auto max-w-6xl px-4">
@@ -209,7 +258,7 @@ function Index() {
         </div>
       </section>
 
-      {/* Services — indexed alternating list */}
+      {/* Services */}
       <section className="bg-background py-20">
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
@@ -258,7 +307,7 @@ function Index() {
         </div>
       </section>
 
-      {/* Why choose us — split with animated performance bars */}
+      {/* Why Choose Us */}
       <section className="relative overflow-hidden bg-dark py-20 text-dark-foreground">
         <div
           aria-hidden
@@ -324,7 +373,7 @@ function Index() {
         </div>
       </section>
 
-      {/* Featured projects — offset asymmetric grid with overlay reveal */}
+      {/* Featured Projects */}
       <section className="bg-background py-20">
         <div className="mx-auto max-w-6xl px-4">
           <p className="section-label">Featured Projects</p>

@@ -1,5 +1,5 @@
-export const WHATSAPP_NUMBER = "923335430155";
-export const WHATSAPP_DISPLAY = "0333 5430155";
+export const WHATSAPP_NUMBER = "9233125438005";
+export const WHATSAPP_DISPLAY = "03125438005";
 export const EMAIL = "info@primeservices.pk";
 export const ADDRESS = "530 M-Block, LDA Avenue 1, Lahore, Pakistan";
 
