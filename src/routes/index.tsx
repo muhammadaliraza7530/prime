@@ -105,29 +105,44 @@ function Index() {
     const videoEl = videoRef.current;
     if (!videoEl) return;
 
+    const attemptPlay = async () => {
+      videoEl.playsInline = true;
+
+      try {
+        videoEl.muted = false;
+        await videoEl.play();
+      } catch {
+        videoEl.muted = true;
+        try {
+          await videoEl.play();
+        } catch {
+          // Some browsers still block autoplay until the user interacts.
+        }
+      }
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
         if (!entry) return;
 
         if (entry.isIntersecting) {
-          videoEl.muted = false;
-          void videoEl.play().catch(() => {
-            // Browsers may block unmuted autoplay without prior click interaction
-            videoEl.muted = true;
-            void videoEl.play();
-          });
+          void attemptPlay();
         } else {
-          videoEl.muted = true;
           videoEl.pause();
         }
       },
-      { threshold: 0.35 },
+      { threshold: 0.2 },
     );
 
     observer.observe(videoEl);
 
+    const timer = window.setTimeout(() => {
+      void attemptPlay();
+    }, 250);
+
     return () => {
+      window.clearTimeout(timer);
       observer.disconnect();
     };
   }, []);
@@ -223,10 +238,17 @@ function Index() {
                 playsInline
                 autoPlay
                 loop
-                muted
                 controls={false}
                 preload="auto"
                 aria-hidden
+                onLoadedData={() => {
+                  void videoRef.current?.play().catch(() => undefined);
+                }}
+                onClick={() => {
+                  if (!videoRef.current) return;
+                  videoRef.current.muted = false;
+                  void videoRef.current.play().catch(() => undefined);
+                }}
                 className="h-full w-full rounded-2xl object-cover"
               />
             </div>
