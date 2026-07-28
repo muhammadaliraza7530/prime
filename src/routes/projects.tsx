@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ImageIcon, MessageCircle, ArrowUpRight, MapPin, PhoneCall } from "lucide-react";
+import { ArrowLeft, ImageIcon, MessageCircle, MapPin, PhoneCall } from "lucide-react";
 import { waLink, DEFAULT_WA_MESSAGE, WHATSAPP_DISPLAY } from "@/lib/site";
 import { useEffect, useRef, useState } from "react";
 
@@ -44,9 +44,9 @@ export const Route = createFileRoute("/projects")({
 });
 
 // Lightweight Scroll Reveal Component
-function Reveal({ children, delay = 0, className = "" }) {
+function Reveal({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -56,7 +56,7 @@ function Reveal({ children, delay = 0, className = "" }) {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1 },
+      { threshold: 0.1 }
     );
 
     if (ref.current) {
@@ -79,6 +79,46 @@ function Reveal({ children, delay = 0, className = "" }) {
       } ${className}`}
     >
       {children}
+    </div>
+  );
+}
+
+// Custom Video Player - Pure video display with Scroll Auto Play/Pause & No Buttons/Badges
+function AutoScrollVideo({ src }: { src: string }) {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(video);
+
+    return () => {
+      if (video) observer.unobserve(video);
+    };
+  }, []);
+
+  return (
+    <div className="relative mx-auto max-w-[320px] sm:max-w-[380px] overflow-hidden rounded-[2.5rem] border-[3px] border-amber-500/40 bg-black p-1 shadow-2xl shadow-black/50">
+      <video
+        ref={videoRef}
+        src={src}
+        loop
+        playsInline
+        preload="metadata"
+        className="h-auto w-full rounded-[2.2rem] object-contain bg-black"
+      />
     </div>
   );
 }
@@ -191,6 +231,23 @@ function ProjectsPage() {
         </div>
       </section>
 
+      {/* Project Video Section */}
+      <section className="relative mx-auto max-w-7xl px-4 py-8 sm:py-12 md:px-6">
+        <Reveal>
+          <div className="overflow-hidden rounded-[1.5rem]  bg-transparent p-4 sm:p-8 text-center">
+            <p className="section-label">Project Showcase</p>
+            <h2 className="mt-2 font-display text-2xl font-black text-foreground sm:text-3xl">
+              See the craftsmanship behind our signature builds.
+            </h2>
+
+            {/* Centered Vertical Portrait Video */}
+            <div className="mt-8 flex justify-center">
+              <AutoScrollVideo src="/projectVideo/projectVidoe.mp4" />
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
       {/* Projects Grid Section */}
       <section className="relative mx-auto max-w-7xl px-4 py-12 sm:py-16 md:py-24 md:px-6">
         <div className="grid gap-4 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -200,15 +257,14 @@ function ProjectsPage() {
                 {/* Top Sliding Accent */}
                 <div className="absolute inset-x-0 top-0 z-20 h-1 origin-left scale-x-0 bg-gradient-to-r from-primary to-primary/50 transition-transform duration-500 group-hover:scale-x-100"></div>
 
-                {/* Image Container with Aspect Ratio (prevents CLS for fast loading) */}
+                {/* Image Container with Aspect Ratio */}
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src={project.src}
                     alt={project.title}
-                    // Fast load first 3 images, lazy load the rest
                     loading={i < 3 ? "eager" : "lazy"}
                     decoding="async"
-                    fetchpriority={i < 3 ? "high" : "low"}
+                    fetchPriority={i < 3 ? "high" : "low"}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
                   />
 
