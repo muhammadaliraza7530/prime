@@ -7,13 +7,14 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "../components/site/Header";
 import { Footer } from "../components/site/Footer";
 import { FloatingWhatsApp } from "../components/site/FloatingWhatsApp";
+import { PromoModal } from "../components/site/PromoModal";
 
 function NotFoundComponent() {
   return (
@@ -154,6 +155,7 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const [isPromoOpen, setIsPromoOpen] = useState(true);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -162,6 +164,7 @@ function RootComponent() {
       <Outlet />
       <Footer />
       <FloatingWhatsApp />
+      <PromoModal isOpen={isPromoOpen} onClose={() => setIsPromoOpen(false)} />
     </QueryClientProvider>
   );
 }
