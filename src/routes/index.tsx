@@ -448,7 +448,7 @@ function Index() {
               to="/projects"
               className="inline-flex items-center gap-2 font-bold text-primary hover:underline"
             >
-              See all projects <ArrowRight size={18} />
+              All Projects <ArrowRight size={18} />
             </Link>
           </div>
         </div>

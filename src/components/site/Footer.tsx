@@ -1,6 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, MessageCircle, Mail, Truck } from "lucide-react";
-import { waLink, DEFAULT_WA_MESSAGE, WHATSAPP_DISPLAY, EMAIL, ADDRESS } from "@/lib/site";
+import {
+  waLink,
+  DEFAULT_WA_MESSAGE,
+  WHATSAPP_DISPLAY,
+  EMAIL,
+  ADDRESS,
+  ADDRESSBhwalpure,
+} from "@/lib/site";
 
 export function Footer() {
   return (
@@ -34,8 +41,15 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-black uppercase tracking-[0.2em] text-primary">Contact</h3>
             <ul className="mt-4 grid gap-3 text-sm text-dark-muted">
-              <li className="flex items-start gap-2.5">
-                <MapPin size={16} className="mt-0.5 shrink-0 text-primary" /> {ADDRESS}
+              <li className="flex flex-col gap-2.5">
+                <div className="flex items-start gap-2.5">
+                  <MapPin size={16} className="mt-0.5 shrink-0 text-primary" />
+                  <span>{ADDRESS}</span>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <MapPin size={16} className="mt-0.5 shrink-0 text-primary" />
+                  <span>{ADDRESSBhwalpure}</span>
+                </div>
               </li>
               <li className="flex items-center gap-2.5">
                 <MessageCircle size={16} className="shrink-0 text-whatsapp" />

@@ -21,7 +21,7 @@ export function Header() {
           <img
             src="/prime-logo.png"
             alt="Prime Services logo"
-            className="h-14 w-auto object-contain"
+            className="h-20 w-auto object-contain"
           />
           <span className="leading-tight hidden sm:block">
             <span className="block font-display text-base font-black tracking-tight text-dark">

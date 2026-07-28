@@ -106,8 +106,8 @@ function Reveal({ children, delay = 0, className = "" }) {
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-700 ease-out ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+      className={`transition-all duration-[600ms] sm:duration-700 ease-out ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 sm:translate-y-12"
       } ${className}`}
     >
       {children}
@@ -133,18 +133,18 @@ function ServicesPage() {
         <div className="pointer-events-none absolute -top-28 -right-24 h-72 w-72 rounded-full bg-primary/15 blur-3xl animate-pulse" />
         <div className="pointer-events-none absolute -bottom-32 -left-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl animate-pulse" />
 
-        <div className="relative mx-auto max-w-6xl px-4 py-24 md:px-6">
-          <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+        <div className="relative mx-auto max-w-6xl px-4 py-16 sm:py-20 md:py-24 md:px-6">
+          <div className="grid gap-10 sm:gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <Reveal>
               <div>
                 <p className="section-label">Our Services</p>
-                <h1 className="mt-5 font-display text-4xl font-black leading-tight tracking-tight text-white md:text-6xl">
+                <h1 className="mt-4 sm:mt-5 font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight sm:leading-[1.1] tracking-tight text-white">
                   Construction, interiors and real estate services for Lahore.
                 </h1>
-                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
+                <p className="mt-4 sm:mt-6 max-w-2xl text-base sm:text-lg md:text-xl leading-relaxed text-slate-300">
                   Prime Services delivers complete building solutions with trusted workmanship, premium materials and transparent project delivery. Whether you need grey structure work, finishing, architecture or property advisory, our team handles every phase with care.
                 </p>
-                <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:items-center">
+                <div className="mt-8 sm:mt-10 flex flex-col gap-6 sm:flex-row sm:items-center">
                   <a
                     href={waLink(DEFAULT_WA_MESSAGE)}
                     target="_blank"
@@ -153,7 +153,7 @@ function ServicesPage() {
                   >
                     <MessageCircle size={18} className="transition-transform duration-300 group-hover:rotate-12" /> WhatsApp {WHATSAPP_DISPLAY}
                   </a>
-                  <p className="max-w-xs text-sm leading-relaxed text-slate-400">
+                  <p className="max-w-xs text-xs sm:text-sm leading-relaxed text-slate-400">
                     Fast response for quotes, site visits and detailed service guidance across Lahore.
                   </p>
                 </div>
@@ -162,26 +162,26 @@ function ServicesPage() {
 
             <Reveal delay={200}>
               {/* Modern Glassmorphism Card */}
-              <div className="group relative rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl transition-all duration-500 hover:border-primary/30 md:p-8">
+              <div className="group relative rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 bg-white/5 p-5 sm:p-6 shadow-2xl shadow-black/20 backdrop-blur-xl transition-all duration-500 hover:border-primary/30 md:p-8">
                 <div className="absolute -top-4 -right-4 h-20 w-20 rounded-full bg-primary/20 blur-2xl transition-all duration-500 group-hover:scale-150"></div>
                 
-                <div className="relative z-10 grid gap-6 sm:grid-cols-2">
+                <div className="relative z-10 grid gap-5 sm:gap-6 sm:grid-cols-2">
                   <div className="flex flex-col justify-center">
-                    <p className="text-xs uppercase tracking-[0.3em] text-primary">Service Promise</p>
-                    <h2 className="mt-3 text-2xl font-black text-white">Quality, schedule and satisfaction first.</h2>
-                    <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                    <p className="text-[0.65rem] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-primary">Service Promise</p>
+                    <h2 className="mt-2 sm:mt-3 text-xl sm:text-2xl font-black text-white leading-tight">Quality, schedule and satisfaction first.</h2>
+                    <p className="mt-2 sm:mt-3 text-xs sm:text-sm leading-relaxed text-slate-300">
                       Backed by certified workmanship and a commitment to on-time delivery.
                     </p>
                   </div>
                   
-                  <div className="grid grid-rows-2 gap-4">
-                    <div className="group/stat rounded-2xl border border-white/10 bg-dark/40 p-5 transition-all duration-300 hover:bg-primary/10 hover:scale-[1.02]">
-                      <p className="text-[0.65rem] uppercase tracking-[0.25em] text-slate-400">Trusted Since</p>
-                      <p className="mt-1 text-3xl font-black text-white transition-colors duration-300 group-hover/stat:text-primary">2005</p>
+                  <div className="grid grid-rows-2 gap-3 sm:gap-4">
+                    <div className="group/stat rounded-xl sm:rounded-2xl border border-white/10 bg-dark/40 p-4 sm:p-5 transition-all duration-300 hover:bg-primary/10 hover:scale-[1.02]">
+                      <p className="text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-slate-400">Trusted Since</p>
+                      <p className="mt-1 text-2xl sm:text-3xl font-black text-white transition-colors duration-300 group-hover/stat:text-primary">2005</p>
                     </div>
-                    <div className="group/stat rounded-2xl border border-white/10 bg-dark/40 p-5 transition-all duration-300 hover:bg-primary/10 hover:scale-[1.02]">
-                      <p className="text-[0.65rem] uppercase tracking-[0.25em] text-slate-400">Projects Delivered</p>
-                      <p className="mt-1 text-3xl font-black text-white transition-colors duration-300 group-hover/stat:text-primary">350+</p>
+                    <div className="group/stat rounded-xl sm:rounded-2xl border border-white/10 bg-dark/40 p-4 sm:p-5 transition-all duration-300 hover:bg-primary/10 hover:scale-[1.02]">
+                      <p className="text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-slate-400">Projects Delivered</p>
+                      <p className="mt-1 text-2xl sm:text-3xl font-black text-white transition-colors duration-300 group-hover/stat:text-primary">350+</p>
                     </div>
                   </div>
                 </div>
@@ -192,30 +192,30 @@ function ServicesPage() {
       </section>
 
       {/* Services Grid Section */}
-      <section className="relative mx-auto max-w-6xl px-4 py-20 md:px-6">
+      <section className="relative mx-auto max-w-6xl px-4 py-16 sm:py-20 md:px-6">
         <Reveal>
-          <div className="mb-12 text-center">
+          <div className="mb-8 sm:mb-12 text-center">
             <p className="section-label">What We Offer</p>
-            <h2 className="mt-3 font-display text-3xl font-black text-foreground md:text-4xl">
+            <h2 className="mt-3 sm:mt-4 font-display text-2xl sm:text-3xl md:text-4xl font-black text-foreground">
               Comprehensive solutions under one roof
             </h2>
           </div>
         </Reveal>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
             <Reveal key={service.title} delay={i * 100}>
               {/* Service Card with Gradient Overlay and Sliding Arrow */}
-              <div className="group relative h-full overflow-hidden rounded-[2rem] border border-border bg-card p-8 shadow-lg shadow-black/5 transition-all duration-500 hover:-translate-y-2 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10">
+              <div className="group relative h-full overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-border bg-card p-6 sm:p-8 shadow-lg shadow-black/5 transition-all duration-500 hover:-translate-y-2 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10">
                 {/* Hover Background Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 opacity-0 transition-opacity duration-500 group-hover:from-primary/5 group-hover:to-transparent group-hover:opacity-100"></div>
                 
                 <div className="relative z-10 flex h-full flex-col">
-                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-white group-hover:scale-110 group-hover:rotate-3">
-                    <service.Icon size={24} />
+                  <div className="inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl sm:rounded-2xl bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-white group-hover:scale-110 group-hover:rotate-3">
+                    <service.Icon size={22} />
                   </div>
-                  <h3 className="mt-6 text-2xl font-bold text-foreground transition-colors duration-300 group-hover:text-primary">{service.title}</h3>
-                  <p className="mt-4 flex-grow text-sm leading-relaxed text-muted-foreground">{service.description}</p>
+                  <h3 className="mt-4 sm:mt-6 text-xl sm:text-2xl font-bold text-foreground transition-colors duration-300 group-hover:text-primary">{service.title}</h3>
+                  <p className="mt-3 sm:mt-4 flex-grow text-xs sm:text-sm leading-relaxed text-muted-foreground">{service.description}</p>
                 </div>
               </div>
             </Reveal>
@@ -233,28 +233,28 @@ function ServicesPage() {
             backgroundSize: "40px 40px",
           }}
         />
-        <div className="relative mx-auto max-w-6xl px-4 py-20 md:px-6">
-          <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+        <div className="relative mx-auto max-w-6xl px-4 py-16 sm:py-20 md:px-6">
+          <div className="grid gap-10 sm:gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
             <Reveal className="lg:sticky lg:top-24">
               <div>
                 <p className="section-label">How We Work</p>
-                <h2 className="mt-4 font-display text-3xl font-black text-white md:text-5xl">
+                <h2 className="mt-3 sm:mt-4 font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight sm:leading-[1.1]">
                   A smooth process from initial consultation to finished handover.
                 </h2>
-                <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">
+                <p className="mt-4 sm:mt-6 max-w-xl text-base sm:text-lg md:text-xl leading-relaxed text-slate-300">
                   We manage every step of your build with clear communication, precise scheduling and full coordination of design, materials and installation.
                 </p>
               </div>
             </Reveal>
 
             {/* Vertical Timeline Layout */}
-            <div className="relative pl-8">
+            <div className="relative pl-6 sm:pl-8">
               {/* Timeline Line */}
               <div className="absolute left-0 top-2 bottom-2 w-px bg-white/10"></div>
               {/* Glowing Line Overlay */}
-              <div className="absolute left-0 top-2 h-32 w-px bg-gradient-to-b from-primary to-transparent"></div>
+              <div className="absolute left-0 top-2 h-24 sm:h-32 w-px bg-gradient-to-b from-primary to-transparent"></div>
 
-              <div className="space-y-8">
+              <div className="space-y-6 sm:space-y-8">
                 {[
                   {
                     num: "01",
@@ -284,18 +284,18 @@ function ServicesPage() {
                   <Reveal key={item.title} delay={i * 150}>
                     <div className="group relative">
                       {/* Timeline Node */}
-                      <div className="absolute -left-8 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-dark ring-1 ring-white/20 transition-all duration-500 group-hover:ring-primary group-hover:ring-2">
+                      <div className="absolute -left-6 sm:-left-8 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-dark ring-1 ring-white/20 transition-all duration-500 group-hover:ring-primary group-hover:ring-2">
                         <div className="h-1.5 w-1.5 rounded-full bg-white/50 transition-all duration-500 group-hover:bg-primary"></div>
                       </div>
                       
-                      <div className="rounded-[1.5rem] border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/10 transition-all duration-500 hover:bg-white/10 hover:border-primary/20 hover:pl-8">
-                        <div className="flex items-center gap-4">
-                          <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-white">
+                      <div className="rounded-[1.25rem] sm:rounded-[1.5rem] border border-white/10 bg-white/5 p-5 sm:p-6 shadow-lg shadow-black/10 transition-all duration-500 hover:bg-white/10 hover:border-primary/20 hover:pl-6 sm:hover:pl-8">
+                        <div className="flex items-center gap-3 sm:gap-4">
+                          <div className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg sm:rounded-xl bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-white">
                             <item.Icon size={18} />
                           </div>
-                          <h3 className="text-lg font-bold text-white transition-colors duration-300 group-hover:text-primary">{item.title}</h3>
+                          <h3 className="text-base sm:text-lg font-bold text-white transition-colors duration-300 group-hover:text-primary">{item.title}</h3>
                         </div>
-                        <p className="mt-4 pl-14 text-sm leading-relaxed text-slate-300">{item.desc}</p>
+                        <p className="mt-3 sm:mt-4 pl-12 sm:pl-14 text-xs sm:text-sm leading-relaxed text-slate-300">{item.desc}</p>
                       </div>
                     </div>
                   </Reveal>
@@ -307,19 +307,19 @@ function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="mx-auto max-w-6xl px-4 py-20 md:px-6">
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20 md:px-6">
         <Reveal>
-          <div className="group relative overflow-hidden rounded-[2rem] border border-border bg-foreground p-10 shadow-2xl shadow-black/10 transition-all duration-500 hover:border-primary/30">
+          <div className="group relative overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-border bg-foreground p-6 sm:p-10 shadow-2xl shadow-black/10 transition-all duration-500 hover:border-primary/30">
             {/* Decorative Hover Glow */}
             <div className="absolute -top-32 -right-32 h-64 w-64 rounded-full bg-primary/10 blur-3xl transition-transform duration-700 group-hover:scale-150"></div>
             
-            <div className="relative z-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div className="relative z-10 grid gap-6 sm:gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
               <div>
                 <p className="section-label">Ready to start?</p>
-                <h2 className="mt-3 text-3xl font-black text-background md:text-4xl">
+                <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl font-black text-background leading-tight">
                   Talk to our team for a free site visit and personalized service plan.
                 </h2>
-                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-3 sm:mt-4 max-w-2xl text-xs sm:text-sm leading-relaxed text-muted-foreground">
                   Prime Services is available across Lahore for consultations, estimates and project guidance. Reach out on WhatsApp to explore your next build.
                 </p>
               </div>
@@ -332,9 +332,9 @@ function ServicesPage() {
                 >
                   <MessageCircle size={18} className="transition-transform duration-300 group-hover/btn:rotate-12" /> Chat on WhatsApp {WHATSAPP_DISPLAY}
                 </a>
-                <div className="group/card rounded-3xl border border-border bg-background p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30">
-                  <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">Contact</p>
-                  <p className="mt-3 text-2xl font-black text-foreground transition-colors duration-300 group-hover/card:text-primary">0333 5430155</p>
+                <div className="group/card rounded-2xl sm:rounded-3xl border border-border bg-background p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30">
+                  <p className="text-[0.65rem] sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em] text-muted-foreground">Contact</p>
+                  <p className="mt-2 sm:mt-3 text-xl sm:text-2xl font-black text-foreground transition-colors duration-300 group-hover/card:text-primary">0333 5430155</p>
                 </div>
               </div>
             </div>
