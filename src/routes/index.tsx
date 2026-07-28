@@ -34,6 +34,7 @@ const showcaseGreyStructure = "/showcase-grey-structure.jpg";
 import { waLink, DEFAULT_WA_MESSAGE, WHATSAPP_DISPLAY } from "@/lib/site";
 import { CountUp } from "@/components/site/CountUp";
 import { Reveal } from "@/components/site/Reveal";
+import { Testimonials } from "@/components/site/Testimonials";
 import { ShowcaseCarousel } from "@/components/site/ShowcaseCarousel";
 import { useInView } from "@/hooks/useInView";
 
@@ -42,20 +43,48 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { icon: Home, title: "Real Estate", desc: "Buy, sell & invest in prime Lahore properties." },
-  { icon: Landmark, title: "Architecture Design", desc: "Modern layouts that maximize space & light." },
-  { icon: Sofa, title: "Interior Design", desc: "Stylish, comfortable spaces with premium finishes." },
+  { icon: Home, title: "Real Estate", desc: "Buy, sell & invest in prime Pakistani properties." },
+  {
+    icon: Landmark,
+    title: "Architecture Design",
+    desc: "Modern layouts that maximize space & light.",
+  },
+  {
+    icon: Sofa,
+    title: "Interior Design",
+    desc: "Stylish, comfortable spaces with premium finishes.",
+  },
   { icon: Layers, title: "Grey Structure", desc: "A-grade steel, cement & bricks. Built to last." },
-  { icon: Paintbrush, title: "Finishing Work", desc: "Flawless tiling, paint, flooring & fixtures." },
-  { icon: ClipboardList, title: "Project Management", desc: "Permits, labor, material & timelines handled." },
+  {
+    icon: Paintbrush,
+    title: "Finishing Work",
+    desc: "Flawless tiling, paint, flooring & fixtures.",
+  },
+  {
+    icon: ClipboardList,
+    title: "Project Management",
+    desc: "Permits, labor, material & timelines handled.",
+  },
 ] as const;
 
 const whyUs = [
-  { icon: BadgeCheck, title: "20+ Years Experience", desc: "Two decades of trusted construction excellence." },
+  {
+    icon: BadgeCheck,
+    title: "20+ Years Experience",
+    desc: "Two decades of trusted construction excellence.",
+  },
   { icon: HardHat, title: "Certified Team", desc: "PEC certified engineers and skilled workers." },
   { icon: Wallet, title: "Competitive Pricing", desc: "Transparent rates with no hidden costs." },
-  { icon: ShieldCheck, title: "Lifetime Guarantee", desc: "Lifetime structural guarantee on grey structure." },
-  { icon: Wrench, title: "We Got The Tools", desc: "Latest machinery for faster and precise work." },
+  {
+    icon: ShieldCheck,
+    title: "Lifetime Guarantee",
+    desc: "Lifetime structural guarantee on grey structure.",
+  },
+  {
+    icon: Wrench,
+    title: "We Got The Tools",
+    desc: "Latest machinery for faster and precise work.",
+  },
   { icon: Clock, title: "24/7 Support", desc: "Dedicated project manager for every project." },
 ] as const;
 
@@ -94,10 +123,7 @@ function Index() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    const id = window.setInterval(
-      () => setHeroIdx((i) => (i + 1) % heroSlides.length),
-      5000,
-    );
+    const id = window.setInterval(() => setHeroIdx((i) => (i + 1) % heroSlides.length), 5000);
     return () => window.clearInterval(id);
   }, [heroSlides.length]);
 
@@ -155,7 +181,7 @@ function Index() {
           <img
             key={src}
             src={src}
-            alt="Prime Services construction and luxury home projects in Lahore"
+            alt="Prime Services construction and luxury home projects in Pakistan"
             width={1920}
             height={1280}
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1500ms] ease-in-out ${
@@ -183,12 +209,18 @@ function Index() {
             <span className="text-primary">Since 2005.</span>
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-dark-muted md:mx-0 md:text-base">
-            Lahore's most trusted construction & real estate company. A+ material, certified
-            engineers, on-time delivery and lifetime structural warranty.
+            Pakistan's Premier Construction & Real Estate Company. A+ material, certified engineers,
+            on-time delivery and lifetime structural warranty. Serving major cities across Punjab
+            &amp; Pakistan.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row md:justify-start">
-            <a href={waLink(DEFAULT_WA_MESSAGE)} target="_blank" rel="noreferrer" className="btn-hero">
-              <Phone size={18} /> Get Free Quote
+            <a
+              href={waLink(DEFAULT_WA_MESSAGE)}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-hero"
+            >
+              <Phone size={18} /> Chat on WhatsApp: 03125438005
             </a>
             <Link to="/projects" className="btn-outline-light">
               <Award size={18} /> View Our Projects
@@ -229,7 +261,7 @@ function Index() {
           <div className="relative group max-w-[380px] w-full">
             {/* Ambient Backlight Glow */}
             <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-primary/50 to-primary/20 blur-xl opacity-70 group-hover:opacity-100 transition duration-500" />
-            
+
             {/* Main Video Frame */}
             <div className="relative aspect-[9/16] w-full overflow-hidden rounded-2xl border border-primary/40 shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
               <video
@@ -255,6 +287,7 @@ function Index() {
           </div>
         </div>
       </section>
+      <Testimonials />
 
       {/* Design Showcase Carousel */}
       <section className="bg-background py-20">
@@ -266,8 +299,8 @@ function Index() {
                 Homes We <span className="text-primary">Bring to Life.</span>
               </h2>
               <p className="mt-3 max-w-lg text-sm text-muted-foreground md:text-base">
-                Swipe through a preview of villas, Spanish designs and modern residences designed and
-                built by Prime Services.
+                Swipe through a preview of villas, Spanish designs and modern residences designed
+                and built by Prime Services.
               </p>
             </div>
             <p className="text-xs font-bold uppercase tracking-[0.25em] text-muted-foreground">
@@ -279,6 +312,8 @@ function Index() {
           </div>
         </div>
       </section>
+
+      {/* <Testimonials /> */}
 
       {/* Services */}
       <section className="bg-background py-20">
@@ -294,14 +329,14 @@ function Index() {
               to="/services"
               className="inline-flex items-center gap-2 font-bold text-primary hover:underline"
             >
-              Explore all services <ArrowRight size={18} />
+              Explore all services
             </Link>
           </div>
 
           <ul className="mt-12 divide-y divide-border border-y border-border">
             {services.map((s, i) => (
               <Reveal key={s.title} as="li" delay={i * 80} y={20}>
-                <div className="group grid grid-cols-[auto_1fr_auto] items-center gap-4 py-6 md:gap-8 md:py-8">
+                <div className="group grid grid-cols-[auto_1fr] items-center gap-4 py-6 md:gap-8 md:py-8">
                   <span className="font-display text-2xl font-black text-primary/60 md:text-4xl">
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -310,18 +345,12 @@ function Index() {
                       <s.icon size={22} />
                     </span>
                     <div>
-                      <h3 className="font-display text-lg font-extrabold md:text-2xl">
-                        {s.title}
-                      </h3>
+                      <h3 className="font-display text-lg font-extrabold md:text-2xl">{s.title}</h3>
                       <p className="mt-1 max-w-xl text-sm text-muted-foreground md:text-base">
                         {s.desc}
                       </p>
                     </div>
                   </div>
-                  <ArrowRight
-                    size={22}
-                    className="hidden text-muted-foreground transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary md:block"
-                  />
                 </div>
               </Reveal>
             ))}
@@ -344,8 +373,8 @@ function Index() {
               <span className="text-primary">Delivered on Time.</span>
             </h2>
             <p className="mt-5 max-w-lg text-dark-muted">
-              Two decades in the field. Certified engineers, A+ materials and a workflow
-              that respects your budget and your calendar.
+              Two decades in the field. Certified engineers, A+ materials and a workflow that
+              respects your budget and your calendar.
             </p>
 
             <div ref={bars.ref} className="mt-10 space-y-6">
@@ -434,9 +463,6 @@ function Index() {
                     <h3 className="mt-1.5 font-display text-lg font-extrabold md:text-xl">
                       {p.title}
                     </h3>
-                    <span className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-primary opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                      View project <ArrowRight size={14} />
-                    </span>
                   </div>
                 </Reveal>
               );
@@ -468,7 +494,12 @@ function Index() {
             <MessageCircle size={18} /> WhatsApp: {WHATSAPP_DISPLAY}
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <a href={waLink(DEFAULT_WA_MESSAGE)} target="_blank" rel="noreferrer" className="btn-hero">
+            <a
+              href={waLink(DEFAULT_WA_MESSAGE)}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-hero"
+            >
               <Phone size={18} /> Get Free Quote
             </a>
             <Link to="/contact" className="btn-outline-light">

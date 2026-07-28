@@ -80,18 +80,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Prime Services — Construction & Real Estate in Lahore" },
+      { title: "Prime Services — Pakistan's Premier Construction & Real Estate Company" },
       {
         name: "description",
         content:
-          "Prime Services: Lahore's trusted construction & real estate company since 2005. Grey structure, finishing, architecture, interior design & project management.",
+          "Prime Services: Pakistan's premier construction & real estate company since 2005. Grey structure, finishing, architecture, interior design & project management across Punjab & major cities.",
       },
       { name: "author", content: "Prime Services" },
       { property: "og:title", content: "Prime Services — You Dream It! We Build It." },
       {
         property: "og:description",
         content:
-          "Lahore's trusted construction & real estate company since 2005. 350+ projects delivered with lifetime structural warranty.",
+          "Serving major cities across Punjab & Pakistan. 350+ projects delivered with lifetime structural warranty.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Prime Services" },
@@ -117,7 +117,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "GeneralContractor",
           name: "Prime Services",
-          telephone: "+92 333 5430155",
+          telephone: "+92 312 5438005",
           email: "info@primeservices.pk",
           foundingDate: "2005",
           address: {
@@ -126,7 +126,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             addressLocality: "Lahore",
             addressCountry: "PK",
           },
-          areaServed: "Lahore, Pakistan",
+          areaServed:
+            "Lahore, Gujranwala, Rawalpindi, Islamabad, Bahawalpur, Peshawar, Karachi, Hyderabad, Kashmir, Pakistan",
         }),
       },
     ],

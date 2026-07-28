@@ -37,7 +37,7 @@ export function ComingSoon({ label, title, description }: Props) {
             rel="noreferrer"
             className="btn-whatsapp"
           >
-            <MessageCircle size={18} /> WhatsApp {WHATSAPP_DISPLAY}
+            <MessageCircle size={18} /> Chat on WhatsApp: 03125438005
           </a>
           <Link to="/" className="btn-outline-light">
             <ArrowLeft size={18} /> Back to Home

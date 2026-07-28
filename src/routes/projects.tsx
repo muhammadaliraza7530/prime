@@ -56,7 +56,7 @@ function Reveal({ children, delay = 0, className = "" }) {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (ref.current) {
@@ -106,11 +106,14 @@ function ProjectsPage() {
             <Reveal>
               <div>
                 <p className="section-label">Our Projects</p>
-                <h1 className="mt-4 sm:mt-6 font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.15] sm:leading-[1.1] tracking-tight text-white">
-                  Built Punjab projects with real images, quality finishes and strong structure.
+                <h1 className="mt-4 sm:mt-6 font-display text-3xl sm:text-4xl md:text-5xl font-black leading-[1.15] sm:leading-[1.1] tracking-tight text-white">
+                  Built projects across Punjab &amp; Pakistan with real images, quality finishes and
+                  strong structure.
                 </h1>
                 <p className="mt-4 sm:mt-8 max-w-2xl text-base sm:text-lg md:text-xl leading-relaxed text-slate-300">
-                  Explore our gallery of completed and in-progress builds across Punjab. Each image highlights the strength, craftsmanship and finish quality you can expect from Prime Services.
+                  Explore our gallery of completed and in-progress builds across Punjab and other
+                  major regions. Each image highlights the strength, craftsmanship and finish
+                  quality you can expect from Prime Services.
                 </p>
                 <div className="mt-8 sm:mt-12 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
                   <a
@@ -119,13 +122,21 @@ function ProjectsPage() {
                     rel="noreferrer"
                     className="btn-hero group inline-flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/30"
                   >
-                    <MessageCircle size={18} className="transition-transform duration-300 group-hover:rotate-12" /> WhatsApp {WHATSAPP_DISPLAY}
+                    <MessageCircle
+                      size={18}
+                      className="transition-transform duration-300 group-hover:rotate-12"
+                    />{" "}
+                    Chat on WhatsApp: 03125438005
                   </a>
-                  <Link 
-                    to="/" 
+                  <Link
+                    to="/"
                     className="group inline-flex items-center gap-2 text-sm font-semibold text-slate-200 transition hover:text-white"
                   >
-                    <ArrowLeft size={18} className="transition-transform duration-300 group-hover:-translate-x-1" /> Back to Home
+                    <ArrowLeft
+                      size={18}
+                      className="transition-transform duration-300 group-hover:-translate-x-1"
+                    />{" "}
+                    Back to Home
                   </Link>
                 </div>
               </div>
@@ -142,8 +153,12 @@ function ProjectsPage() {
                       <ImageIcon size={20} />
                     </div>
                     <div>
-                      <p className="text-[0.65rem] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-primary">Project Gallery</p>
-                      <h2 className="mt-1 text-lg sm:text-2xl font-black text-white">Real builds. Real results.</h2>
+                      <p className="text-[0.65rem] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-primary">
+                        Project Gallery
+                      </p>
+                      <h2 className="mt-1 text-lg sm:text-2xl font-black text-white">
+                        Real builds. Real results.
+                      </h2>
                     </div>
                   </div>
                   <p className="relative z-10 mt-4 sm:mt-6 max-w-md text-xs sm:text-sm leading-relaxed text-slate-200">
@@ -153,13 +168,21 @@ function ProjectsPage() {
 
                 {/* Smaller Stats */}
                 <div className="group relative overflow-hidden rounded-[1rem] sm:rounded-[1.5rem] border border-white/10 bg-dark/40 p-4 sm:p-6 transition-all duration-300 hover:bg-white/10 hover:-translate-y-1">
-                  <p className="text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-slate-400">Trusted Since</p>
-                  <p className="mt-2 text-2xl sm:text-4xl font-black text-white transition-colors duration-300 group-hover:text-primary">2005</p>
+                  <p className="text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-slate-400">
+                    Trusted Since
+                  </p>
+                  <p className="mt-2 text-2xl sm:text-4xl font-black text-white transition-colors duration-300 group-hover:text-primary">
+                    2005
+                  </p>
                   <div className="absolute -bottom-4 -right-4 h-16 w-16 rounded-full bg-primary/10 blur-xl transition-transform duration-500 group-hover:scale-150"></div>
                 </div>
                 <div className="group relative overflow-hidden rounded-[1rem] sm:rounded-[1.5rem] border border-white/10 bg-dark/40 p-4 sm:p-6 transition-all duration-300 hover:bg-white/10 hover:-translate-y-1">
-                  <p className="text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-slate-400">Projects Shown</p>
-                  <p className="mt-2 text-2xl sm:text-4xl font-black text-white transition-colors duration-300 group-hover:text-primary">15+</p>
+                  <p className="text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-slate-400">
+                    Projects Shown
+                  </p>
+                  <p className="mt-2 text-2xl sm:text-4xl font-black text-white transition-colors duration-300 group-hover:text-primary">
+                    15+
+                  </p>
                   <div className="absolute -bottom-4 -right-4 h-16 w-16 rounded-full bg-primary/10 blur-xl transition-transform duration-500 group-hover:scale-150"></div>
                 </div>
               </div>
@@ -176,7 +199,7 @@ function ProjectsPage() {
               <article className="group relative h-full overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-border bg-card shadow-lg shadow-black/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
                 {/* Top Sliding Accent */}
                 <div className="absolute inset-x-0 top-0 z-20 h-1 origin-left scale-x-0 bg-gradient-to-r from-primary to-primary/50 transition-transform duration-500 group-hover:scale-x-100"></div>
-                
+
                 {/* Image Container with Aspect Ratio (prevents CLS for fast loading) */}
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
@@ -188,10 +211,10 @@ function ProjectsPage() {
                     fetchpriority={i < 3 ? "high" : "low"}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
                   />
-                  
+
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100"></div>
-                  
+
                   {/* Logo */}
                   <img
                     src="/prime-logo.png"
@@ -200,7 +223,7 @@ function ProjectsPage() {
                     decoding="async"
                     className="absolute left-3 top-3 sm:left-4 sm:top-4 z-10 h-9 w-9 sm:h-12 sm:w-12 rounded-full border border-white/40 bg-white/90 p-1.5 sm:p-2 shadow-xl backdrop-blur-sm transition-all duration-500 group-hover:scale-110 group-hover:border-primary"
                   />
-                  
+
                   {/* Content */}
                   <div className="absolute inset-x-0 bottom-0 z-10 p-4 pb-5 sm:p-6 sm:pb-6 text-white">
                     <div className="flex items-center gap-2 text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-primary transition-all duration-500 group-hover:tracking-[0.3em]">
@@ -233,9 +256,10 @@ function ProjectsPage() {
                 Message us on WhatsApp for the full portfolio and latest project photos.
               </h2>
               <p className="mt-4 sm:mt-6 max-w-xl mx-auto text-xs sm:text-sm md:text-base leading-relaxed text-slate-300">
-                We send updated galleries and case details directly to clients. Let us know your project type and site location to receive a customized portfolio pack.
+                We send updated galleries and case details directly to clients. Let us know your
+                project type and site location to receive a customized portfolio pack.
               </p>
-              
+
               <div className="mt-8 sm:mt-10 flex flex-col items-center justify-center gap-3 sm:gap-4 sm:flex-row">
                 <a
                   href={waLink(DEFAULT_WA_MESSAGE)}
@@ -243,13 +267,21 @@ function ProjectsPage() {
                   rel="noreferrer"
                   className="btn-hero group/btn inline-flex w-full sm:w-auto items-center justify-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/30"
                 >
-                  <MessageCircle size={18} className="transition-transform duration-300 group-hover/btn:rotate-12" /> Chat on WhatsApp {WHATSAPP_DISPLAY}
+                  <MessageCircle
+                    size={18}
+                    className="transition-transform duration-300 group-hover/btn:rotate-12"
+                  />{" "}
+                  Chat on WhatsApp: 03125438005
                 </a>
                 <a
-                  href="tel:03335430155"
+                  href="tel:+923125438005"
                   className="group/tel inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:scale-105"
                 >
-                  <PhoneCall size={18} className="transition-transform duration-300 group-hover/tel:rotate-12" /> 0333 5430155
+                  <PhoneCall
+                    size={18}
+                    className="transition-transform duration-300 group-hover/tel:rotate-12"
+                  />{" "}
+                  03125438005
                 </a>
               </div>
             </div>

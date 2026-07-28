@@ -46,8 +46,13 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <a href={waLink(DEFAULT_WA_MESSAGE)} target="_blank" rel="noreferrer" className="btn-whatsapp !px-5 !py-2.5 !text-sm">
-            <MessageCircle size={16} /> WhatsApp
+          <a
+            href={waLink(DEFAULT_WA_MESSAGE)}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-whatsapp !px-5 !py-2.5 !text-sm"
+          >
+            <MessageCircle size={16} /> Chat on WhatsApp: 03125438005
           </a>
         </nav>
 
@@ -80,7 +85,7 @@ export function Header() {
             rel="noreferrer"
             className="btn-whatsapp mt-4 w-full"
           >
-            <MessageCircle size={18} /> Chat on WhatsApp
+            <MessageCircle size={18} /> Chat on WhatsApp: 03125438005
           </a>
         </nav>
       )}
